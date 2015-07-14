@@ -102,6 +102,15 @@ server.create({
 });
 ```
 
+### Dropping an existing database
+
+```js
+server.drop({
+  name: 'mydb',
+  storage: 'plocal'
+});
+```
+
 ### Using an existing database
 
 ```js
