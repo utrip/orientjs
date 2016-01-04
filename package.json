@@ -54,7 +54,6 @@
     "parse-function": "^2.0.0",
     "request": "~2.60.0",
     "yargs": "~1.2.1"
-
   },
   "devDependencies": {
     "mocha": "^2.0.1",
@@ -63,8 +62,8 @@
     "istanbul": "~0.2.7",
     "jshint": "~2.5.0"
   },
-  "optionalDependencies" : {
-    "orientjs" : "~1.0.0"
+  "optionalDependencies": {
+    "orientjs-native": "~1.0.0"
   },
   "main": "./lib/index.js",
   "directories": {
