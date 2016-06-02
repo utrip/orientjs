@@ -307,7 +307,7 @@ describe("Database API - Query", function () {
     it('should update a user', function () {
       return this.db.update('OUser').set({foo: 'bar'}).where({name: 'reader'}).limit(1).scalar()
       .then(function (count) {
-        count.should.eql('1');
+        count.should.eql(1);
       });
     });
   });
@@ -364,7 +364,7 @@ describe("Database API - Query", function () {
           name: 'Samson'
         }
       }).then(function (response){
-        response[0].should.eql('1');
+        response[0].should.eql(1);
       });
     });
   });

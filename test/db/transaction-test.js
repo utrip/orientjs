@@ -358,4 +358,17 @@ describe('Transactional Queries', function () {
         result['@class'].should.equal('TestEdge');
       });
   });
+  it('should return coplex result set from transaction', function () {
+    return this.db
+      .let('vert', 'create vertex TestVertex set name="nameA"')
+      .let('vert1', 'create vertex TestVertex set name="nameB"')
+      .let('edge1', 'create edge TestEdge from $vert to $vert1')
+      .commit(100)
+      .return('[$vert,$vert1,$edge1]')
+      .one()
+      .then(function (result) {
+	console.log(result);
+        result.length.should.equal(3);
+      });
+  });
 });
