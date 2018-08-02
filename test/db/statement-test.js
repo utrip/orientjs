@@ -225,6 +225,11 @@ COMMIT \n\
       this.statement.buildStatement().should.equal('UPDATE #1:1 SET foo = :paramfoo0, greeting = :paramgreeting1');
     });
 
+    it('should update a record, replacing all content', function () {
+      this.statement.update('#1:1').content({foo: 'bar', greeting: 'hello world'});
+      this.statement.buildStatement().should.equal('UPDATE #1:1 CONTENT {"foo":"bar","greeting":"hello world"}');
+    });
+
     it('should update a record with a nested statement', function () {
       this.statement.update('#1:1').set({
         foo: function (s) {
@@ -539,6 +544,15 @@ COMMIT \n\
     it('should remove multiple values from a property', function () {
       this.statement.update('#1:1').remove('foo', 123, 'bar');
       this.statement.toString().should.equal('UPDATE #1:1 REMOVE foo = 123, foo = "bar"');
+    });
+
+    it('should remove a property', function () {
+      this.statement.update('#1:1').remove('foo');
+      this.statement.toString().should.equal('UPDATE #1:1 REMOVE foo');
+    });
+    it('should remove a property', function () {
+      this.statement.update('#1:1').remove('foo').remove('bar');
+      this.statement.toString().should.equal('UPDATE #1:1 REMOVE foo, bar');
     });
   });
 

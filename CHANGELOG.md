@@ -1,8 +1,52 @@
+####2.2.10
+
+### Bug Fixes
+
+* [#293](https://github.com/orientechnologies/orientjs/issues/293) Fixed issue with LiveQuery::unsubscribe. 
+
+####2.2.9
+
+### Bug Fixes
+
+* Fixed issue on Server::connect. Added missing paramenter useToken
+
+####2.2.8
+
+### Bug Fixes
+
+* [#297](https://github.com/orientechnologies/orientjs/issues/297) Session management issue with token
+
+### PR Merged
+
+* [#292](https://github.com/orientechnologies/orientjs/pull/292) Added superclasses property 
+
+
+####2.2.7
+
+### Bug Fixes
+
+* [#279](https://github.com/orientechnologies/orientjs/issues/279), [#172](https://github.com/orientechnologies/orientjs/issues/172) Server session management issue.
+
+###Enhancements
+
+* [#275](https://github.com/orientechnologies/orientjs/issues/275) Migration support when using Typescript
+
+####2.2.6
+
+### Bug Fixes
+
+* [#259](https://github.com/orientechnologies/orientjs/issues/259), [#261](https://github.com/orientechnologies/orientjs/issues/261), [#262](https://github.com/orientechnologies/orientjs/issues/262) Live Query Fix
+
 ####2.2.5
 
 ###Enhancements
 
 * [#181](https://github.com/orientechnologies/orientjs/issues/181) Removed cluster_id param in API `db.record.create` and let the db chose the best cluster instead of the default one
+
+### Bug Fixes
+
+* [#245](https://github.com/orientechnologies/orientjs/issues/245) Fixed MigrationManager.listApplied
+* [#243](https://github.com/orientechnologies/orientjs/issues/243) Fixed Multiple live query on the same db object.
 
 ####2.2.4
 

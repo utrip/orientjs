@@ -339,13 +339,27 @@ describe("Database API - Query", function () {
         uuid : this.db.rawExpression("format('%s',uuid())")
       }).one()
         .then(function (user) {
-          user.uuid.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i)
+          user.uuid.should.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i)
         });
     });
   });
   describe('Db::update()', function () {
     it('should update a user', function () {
       return this.db.update('OUser').set({foo: 'bar'}).where({name: 'reader'}).limit(1).scalar()
+        .then(function (count) {
+          count.should.eql('1');
+        });
+    });
+  });
+  describe('Db::updateContent()', function () {
+    it('should update a user, replacing record content', function () {
+      var updatedUser = {
+        name: 'reader',
+        password: 'mynewerpassword',
+        status: 'active',
+        roles: ["#4:1"],
+        foo: 'bar'};
+      return this.db.update('OUser').content(updatedUser).where({name: 'reader'}).limit(1).scalar()
         .then(function (count) {
           count.should.eql('1');
         });
